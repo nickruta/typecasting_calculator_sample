@@ -1,0 +1,1 @@
+This simple example was created while studying Typecasting with PHP
