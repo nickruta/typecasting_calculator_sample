@@ -6,14 +6,14 @@
 </head>
 <body>
 <?php #This script calculates an order total based upon three form values. It displays 
- 	  # the Typecasting feature of PHP.
+ 	  # the Typecasting feature and Filter extension of PHP 5.2 or later.
 
 // check if the form has been submitted:
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	// cast all the variables to a specific type:
-	$quantity = (int) $_POST['quantity'];
-	$price = (float) $_POST['price'];
-	$tax = (float) $_POST['tax'];
+	// Sanitize the variables
+	$quantity = (isset($_POST ['quantity'])) ? filter_var($_POST['quantity'], FILTER_VALIDATE_INT, array('min_range' => 1)) : NULL;
+	$price = (isset($_POST['price'])) ? filter_var($_POST['price'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION) : NULL;
+	$tax = (isset($_POST['tax'])) ? filter_var($_POST['tax'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION) : NULL;
 	
 	/* all variables should be positive! They must be positive numbers. The rules of Typecasting state that if they are not numbers, they will be posted as 0 and fail this validation */
 	if ( ($quantity > 0) && ($price > 0) && ($tax >0) ) {
