@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$price = (float) $_POST['price'];
 	$tax = (float) $_POST['tax'];
 	
-	// all variables should be positive!
+	/* all variables should be positive! They must be positive numbers. The rules of Typecasting state that if they are not numbers, they will be posted as 0 and fail this validation */
 	if ( ($quantity > 0) && ($price > 0) && ($tax >0) ) {
 		// calculate the total
 		$total = $quantity * $price;
