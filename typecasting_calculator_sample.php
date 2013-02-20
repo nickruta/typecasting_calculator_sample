@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Calculator Example</title>
-	<link href="style.css" rel="stylesheet" type="text/css" media="screen" />	
+	<title>Widget Cost Calculator</title>
+	<link href="assets/style.css" rel="stylesheet" type="text/css" media="screen" />
+	<script type="text/javascript" src="assets/jquery-1.9.1.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="assets/calculator.js" charset="utf-8"></script>
+	
 </head>
 <body>
 <?php #This script calculates an order total based upon three form values. It displays 
